@@ -6,14 +6,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const getSubReddit = function(e) {
   e.preventDefault();
-  let query = document.querySelector("form")["queryField"].value;
-  fetchSubReddit(query);
+  let query = document.querySelector("form")["query-field"].value;
+  let options = document.querySelector("form")["search-option"].value;
+  fetchSubReddit(query, options);
 };
 
-const fetchSubReddit = function(query) {
+const fetchSubReddit = function(query, options) {
   let parent = document.getElementById("results");
   parent.innerHTML = " ";
-  fetch(`https://www.reddit.com/search.json?q=${query.toLowerCase}`)
+
+  if (options === "no") {
+    options = "+nsfw:no";
+  } else {
+    options = "";
+  }
+  fetch(`https://www.reddit.com/search.json?q=${query.toLowerCase()}${options}`)
     .then(function(responseData) {
       let jsonData = responseData.json();
       return jsonData;
@@ -39,6 +46,7 @@ const addItem = function(result) {
   let resultUrl = document.createElement("a");
   resultUrl.textContent = "Link to Page";
   resultUrl.href = `https://www.reddit.com${result.url}`;
+  resultUrl.target = "_blank";
 
   resultDiv.appendChild(resultTitle);
   resultDiv.appendChild(resultUrl);

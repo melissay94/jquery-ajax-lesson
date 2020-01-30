@@ -10,14 +10,13 @@
     </head>
     <body>
         <form>
-            <label for="queryField">Search Query:</label>
-            <input type="text" name="queryField" placeholder="Enter your Search Query" />
+            <label for="queryField">Reddit Search:</label>
+            <input type="text" name="query-field" placeholder="Enter your Search Query" />
             <label for="names">Pick a Primary Color:</label>
-            <select name="colors">
-                <option value="red">Red</option>
-                <option value="yellow">Yellow</option>
-                <option value="blue">Blue</option>
-            </select>
+            <select name="search-option">
+                <option value="no">Safe for Work</option>
+                <option value="yes">NSFW - CAREFUL!!</option>
+            </select> 
             <input type="submit" id="submit-btn" />
         </form>
         <div id="results">

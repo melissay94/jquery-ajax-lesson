@@ -18,3 +18,12 @@ label, input, select {
     width: 20vw;
     padding: 10px;
 }
+
+#results {
+    width: 30vw;
+    margin: 0 auto;
+    border: 2px dotted oldlace;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
