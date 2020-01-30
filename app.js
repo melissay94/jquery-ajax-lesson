@@ -20,6 +20,7 @@ const fetchSubReddit = function(query, options) {
   } else {
     options = "";
   }
+  
   fetch(`https://www.reddit.com/search.json?q=${query.toLowerCase()}${options}`)
     .then(function(responseData) {
       let jsonData = responseData.json();
